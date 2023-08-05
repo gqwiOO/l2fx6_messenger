@@ -1,0 +1,9 @@
+{%extends "base_generic.html"%}
+
+{%block title%}Ошибка реестрации{% endblock title %}
+
+{% block content %}
+  <p>Произошла ошибка реестрации</p>
+  <a href="{% url 'registration' %}"><p><b>Вернутся обратно</b></p></a>
+  <a href="{% url 'home' %}"><p><b>Вернутся в главное меню</b></p></a>
+{% endblock content %}

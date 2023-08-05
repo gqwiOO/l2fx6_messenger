@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Регистрация{% endblock title %}
+
+{% block content %}
+    <div class="registration-form">
+        <h1>Create an account</h1>
+        <form action="." method="post">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            <p><input type="submit" value="Create"></p>
+        </form>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Регистрация прошла успешно!{% endblock title %}
+
+{% block content %}
+    <div class="registrated">
+        <p>Регистрация прошла успешно</p>
+        <a href="{% url 'login' %}"><p>Войти в аккаунт?</p></a>
+    </div>
+{% endblock content %}

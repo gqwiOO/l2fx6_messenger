@@ -1,0 +1,29 @@
+html {
+    font: 1.3rem / 1.3 'Ravi Prakash';
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: white;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.content,
+.footer {
+    padding: 1rem;
+}
+
+.article{
+    text-align: center;
+}
+
+.login-form,
+.registration-form{
+    margin: 0 auto;
+    top: 100px;
+}
