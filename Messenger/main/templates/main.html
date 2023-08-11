@@ -3,16 +3,6 @@
 {%block content%}
     <div class="content">
         <h4 class="article">L2FX6</h4>
-
-        <div style="float:right;">
-        {% if request.user.is_authenticated %}
-            <p>{{request.user.username}}</p>
-            <p><a href="{% url 'exit' %}">Logout</a></p>
-        {% else %}
-            <p><a href="{% url 'login' %}">Sign in</a></p>
-            <p>or</p>
-            <p><a href="{% url 'registration' %}">Sign up</a></p>
-        {% endif %}
-        </div>
+        <a href="{% url 'create_room' %}">Create room</a>
     </div>
 {%endblock content%}

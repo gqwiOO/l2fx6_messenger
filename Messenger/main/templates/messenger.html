@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block title %}l2fx6{% endblock title %}
+
+{% block content %}
+    <div class="content">
+        <div class="user-rooms">
+            <table>
+                {% for room in rooms %}
+                    <a href="{% url 'chat' room.id %}"><p>creator : {{room.creator}} member : {{room.member}}</p></a>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock content %}

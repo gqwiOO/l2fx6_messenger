@@ -23,6 +23,10 @@ urlpatterns = [
     path('', views.index, name='home'),
     path("login/", views.user_login, name='login'),
     path('exit/', authViews.LogoutView.as_view(), name='exit'),
-    path('registration/', views.user_registration, name='registration')
+    path('registration/', views.user_registration, name='registration'),
+    path('messanger/', views.messenger,name='messanger'),
+    path('create_room', views.create_room, name="create_room"),
+    path(r'chat/<int:room_id>', views.chat, name='chat'),
+
 
 ]

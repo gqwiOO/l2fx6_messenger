@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{%block content%}
+  <div class="content">
+    <div class="create-room">
+      <form method="post" action="create_room">
+        {% csrf_token %}
+        <p>
+          <label>Enter member of your chat</label>
+          <input type="text" name="member">
+
+        </p>
+        <input type="submit" value="Create" >
+
+      </form>
+    </div>
+  </div>
+{% endblock content %}

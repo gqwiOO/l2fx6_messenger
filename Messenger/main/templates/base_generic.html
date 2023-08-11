@@ -22,6 +22,38 @@
 
 {% endblock content %}
 
+
+{% block sidebar %}
+    <div class="side-bar">
+        <div class="account-status">
+            {% if request.user.is_authenticated %}
+            <p>{{request.user.username}}</p>
+            <p><a href="{% url 'exit' %}">Logout</a></p>
+        {% else %}
+            <p><a href="{% url 'login' %}">Sign in</a></p>
+            <p>or</p>
+            <p><a href="{% url 'registration' %}">Sign up</a></p>
+        {% endif %}
+        </div>
+        
+        <div class="buttons">
+            <div class="messanger">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'messanger' %}"><p>Go to messenger</p></a>
+            {% else %}
+                <a href="{% url 'login' %}"><p>Go to messenger</p></a>
+            {% endif %}
+            </div>
+
+            <div class="home">
+                <a href="{% url 'home' %}"><p>home</p></a>
+            </div>
+        </div>
+
+    </div>
+{% endblock sidebar %}
+
+
 {% block footer %}
     <div class="footer">
         <p1>Created by l2fx6 04.08.2023</p1>

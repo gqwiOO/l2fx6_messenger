@@ -2,6 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login
+from django_currentuser.middleware import (get_current_user,get_current_authenticated_user)
+from .models import Room
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -37,3 +40,22 @@ def user_registration(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'registration.html', {"user_form": user_form})
+
+def messenger(request):
+    user_rooms = Room.objects.all()
+    return render(request, "messenger.html", context={"rooms": user_rooms})
+
+def create_room(request):
+    if request.method == "POST":
+        room = Room()
+        room.creator = get_current_user()
+        room.member = User.objects.filter(username=request.POST.get("member"))[0]
+        room.save()
+
+
+    else:
+        return render(request, "create_room.html")
+    return render(request, "messenger.html")
+
+def chat(request, room_id):
+    return render(request, "chat.html", context={"room": Room.objects.filter(creator_id=get_current_user().id)})
